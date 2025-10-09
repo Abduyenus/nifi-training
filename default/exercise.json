@@ -1856,13 +1856,13 @@
         "destination" : {
           "comments" : "",
           "groupId" : "bd837e1a-0199-1000-3772-7b730a4ead51",
-          "id" : "3c8b3038-d1f5-34af-ad3a-5778d804867e",
-          "name" : "ConvertRecord",
+          "id" : "2713da27-cf25-3e74-ffff-fffff837499b",
+          "name" : "ExtractRecordSchema",
           "type" : "PROCESSOR"
         },
         "flowFileExpiration" : "0 sec",
         "groupIdentifier" : "bd837e1a-0199-1000-3772-7b730a4ead51",
-        "identifier" : "466c4dd9-3af8-3a98-b1a2-36d31358fea9",
+        "identifier" : "2721fd3d-fd5b-3494-83e1-df7e9a71626e",
         "labelIndex" : 0,
         "loadBalanceCompression" : "DO_NOT_COMPRESS",
         "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
@@ -1873,11 +1873,71 @@
         "source" : {
           "comments" : "",
           "groupId" : "bd837e1a-0199-1000-3772-7b730a4ead51",
-          "id" : "fc823b6a-4fc6-36e9-8165-d8f3861a2187",
+          "id" : "9be5e712-2428-3fd4-ffff-ffffbdfb4813",
+          "name" : "ConvertRecord",
+          "type" : "PROCESSOR"
+        },
+        "zIndex" : 47
+      }, {
+        "backPressureDataSizeThreshold" : "1 GB",
+        "backPressureObjectThreshold" : 10000,
+        "bends" : [ ],
+        "componentType" : "CONNECTION",
+        "destination" : {
+          "comments" : "",
+          "groupId" : "bd837e1a-0199-1000-3772-7b730a4ead51",
+          "id" : "713f1c1b-0ef8-3b8f-b5de-ac1c5ee77c52",
+          "name" : "Funnel",
+          "type" : "FUNNEL"
+        },
+        "flowFileExpiration" : "0 sec",
+        "groupIdentifier" : "bd837e1a-0199-1000-3772-7b730a4ead51",
+        "identifier" : "347df95f-b168-35a4-8679-37332def4ce1",
+        "labelIndex" : 0,
+        "loadBalanceCompression" : "DO_NOT_COMPRESS",
+        "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+        "name" : "",
+        "partitioningAttribute" : "",
+        "prioritizers" : [ ],
+        "selectedRelationships" : [ "failure" ],
+        "source" : {
+          "comments" : "",
+          "groupId" : "bd837e1a-0199-1000-3772-7b730a4ead51",
+          "id" : "2713da27-cf25-3e74-ffff-fffff837499b",
           "name" : "ExtractRecordSchema",
           "type" : "PROCESSOR"
         },
-        "zIndex" : 23
+        "zIndex" : 53
+      }, {
+        "backPressureDataSizeThreshold" : "1 GB",
+        "backPressureObjectThreshold" : 10000,
+        "bends" : [ ],
+        "componentType" : "CONNECTION",
+        "destination" : {
+          "comments" : "",
+          "groupId" : "bd837e1a-0199-1000-3772-7b730a4ead51",
+          "id" : "bd837e1b-0199-1000-e712-420a929e3c37",
+          "name" : "QueryRecord",
+          "type" : "PROCESSOR"
+        },
+        "flowFileExpiration" : "0 sec",
+        "groupIdentifier" : "bd837e1a-0199-1000-3772-7b730a4ead51",
+        "identifier" : "39b2e558-f5be-338c-8c56-0896894c18ef",
+        "labelIndex" : 0,
+        "loadBalanceCompression" : "DO_NOT_COMPRESS",
+        "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+        "name" : "",
+        "partitioningAttribute" : "",
+        "prioritizers" : [ ],
+        "selectedRelationships" : [ "non-duplicate" ],
+        "source" : {
+          "comments" : "",
+          "groupId" : "bd837e1a-0199-1000-3772-7b730a4ead51",
+          "id" : "77d3e036-17e4-3ed6-b780-914cac322bd2",
+          "name" : "DeduplicateRecord",
+          "type" : "PROCESSOR"
+        },
+        "zIndex" : 50
       }, {
         "backPressureDataSizeThreshold" : "1 GB",
         "backPressureObjectThreshold" : 10000,
@@ -1944,35 +2004,6 @@
         "destination" : {
           "comments" : "",
           "groupId" : "bd837e1a-0199-1000-3772-7b730a4ead51",
-          "id" : "77d3e036-17e4-3ed6-b780-914cac322bd2",
-          "name" : "DeduplicateRecord",
-          "type" : "PROCESSOR"
-        },
-        "flowFileExpiration" : "0 sec",
-        "groupIdentifier" : "bd837e1a-0199-1000-3772-7b730a4ead51",
-        "identifier" : "6d3cf258-b40c-3522-93aa-fe979396d75a",
-        "labelIndex" : 0,
-        "loadBalanceCompression" : "DO_NOT_COMPRESS",
-        "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-        "name" : "",
-        "partitioningAttribute" : "",
-        "prioritizers" : [ ],
-        "selectedRelationships" : [ "" ],
-        "source" : {
-          "groupId" : "bd837e1a-0199-1000-3772-7b730a4ead51",
-          "id" : "bd837e1d-0199-1000-91c1-054a27f3fc32",
-          "name" : "in",
-          "type" : "INPUT_PORT"
-        },
-        "zIndex" : 25
-      }, {
-        "backPressureDataSizeThreshold" : "1 GB",
-        "backPressureObjectThreshold" : 10000,
-        "bends" : [ ],
-        "componentType" : "CONNECTION",
-        "destination" : {
-          "comments" : "",
-          "groupId" : "bd837e1a-0199-1000-3772-7b730a4ead51",
           "id" : "bd837e1b-0199-1000-e712-420a929e3c37",
           "name" : "QueryRecord",
           "type" : "PROCESSOR"
@@ -1995,6 +2026,36 @@
           "type" : "PROCESSOR"
         },
         "zIndex" : 37
+      }, {
+        "backPressureDataSizeThreshold" : "1 GB",
+        "backPressureObjectThreshold" : 10000,
+        "bends" : [ ],
+        "componentType" : "CONNECTION",
+        "destination" : {
+          "comments" : "",
+          "groupId" : "bd837e1a-0199-1000-3772-7b730a4ead51",
+          "id" : "44bcc45e-9364-3c0b-ffff-fffff381db26",
+          "name" : "ConvertRecord",
+          "type" : "PROCESSOR"
+        },
+        "flowFileExpiration" : "0 sec",
+        "groupIdentifier" : "bd837e1a-0199-1000-3772-7b730a4ead51",
+        "identifier" : "8854884e-0dd7-3450-888e-1e6df5eac148",
+        "labelIndex" : 0,
+        "loadBalanceCompression" : "DO_NOT_COMPRESS",
+        "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+        "name" : "",
+        "partitioningAttribute" : "",
+        "prioritizers" : [ ],
+        "selectedRelationships" : [ "success" ],
+        "source" : {
+          "comments" : "",
+          "groupId" : "bd837e1a-0199-1000-3772-7b730a4ead51",
+          "id" : "2713da27-cf25-3e74-ffff-fffff837499b",
+          "name" : "ExtractRecordSchema",
+          "type" : "PROCESSOR"
+        },
+        "zIndex" : 48
       }, {
         "backPressureDataSizeThreshold" : "1 GB",
         "backPressureObjectThreshold" : 10000,
@@ -2033,13 +2094,13 @@
         "destination" : {
           "comments" : "",
           "groupId" : "bd837e1a-0199-1000-3772-7b730a4ead51",
-          "id" : "bd837e1f-0199-1000-5769-fc33d7572174",
+          "id" : "713f1c1b-0ef8-3b8f-b5de-ac1c5ee77c52",
           "name" : "Funnel",
           "type" : "FUNNEL"
         },
         "flowFileExpiration" : "0 sec",
         "groupIdentifier" : "bd837e1a-0199-1000-3772-7b730a4ead51",
-        "identifier" : "9aa68379-9b6b-3650-acad-6cba080f30ab",
+        "identifier" : "99bedb95-c575-393e-9d0b-95a28949fac5",
         "labelIndex" : 0,
         "loadBalanceCompression" : "DO_NOT_COMPRESS",
         "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
@@ -2050,11 +2111,41 @@
         "source" : {
           "comments" : "",
           "groupId" : "bd837e1a-0199-1000-3772-7b730a4ead51",
+          "id" : "9be5e712-2428-3fd4-ffff-ffffbdfb4813",
+          "name" : "ConvertRecord",
+          "type" : "PROCESSOR"
+        },
+        "zIndex" : 54
+      }, {
+        "backPressureDataSizeThreshold" : "1 GB",
+        "backPressureObjectThreshold" : 10000,
+        "bends" : [ ],
+        "componentType" : "CONNECTION",
+        "destination" : {
+          "comments" : "",
+          "groupId" : "bd837e1a-0199-1000-3772-7b730a4ead51",
           "id" : "77d3e036-17e4-3ed6-b780-914cac322bd2",
           "name" : "DeduplicateRecord",
           "type" : "PROCESSOR"
         },
-        "zIndex" : 42
+        "flowFileExpiration" : "0 sec",
+        "groupIdentifier" : "bd837e1a-0199-1000-3772-7b730a4ead51",
+        "identifier" : "a482d5ff-26e6-3e54-932e-aa54277ad929",
+        "labelIndex" : 0,
+        "loadBalanceCompression" : "DO_NOT_COMPRESS",
+        "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+        "name" : "",
+        "partitioningAttribute" : "",
+        "prioritizers" : [ ],
+        "selectedRelationships" : [ "success" ],
+        "source" : {
+          "comments" : "",
+          "groupId" : "bd837e1a-0199-1000-3772-7b730a4ead51",
+          "id" : "44bcc45e-9364-3c0b-ffff-fffff381db26",
+          "name" : "ConvertRecord",
+          "type" : "PROCESSOR"
+        },
+        "zIndex" : 49
       }, {
         "backPressureDataSizeThreshold" : "1 GB",
         "backPressureObjectThreshold" : 10000,
@@ -2085,6 +2176,35 @@
           "type" : "PROCESSOR"
         },
         "zIndex" : 40
+      }, {
+        "backPressureDataSizeThreshold" : "1 GB",
+        "backPressureObjectThreshold" : 10000,
+        "bends" : [ ],
+        "componentType" : "CONNECTION",
+        "destination" : {
+          "comments" : "",
+          "groupId" : "bd837e1a-0199-1000-3772-7b730a4ead51",
+          "id" : "9be5e712-2428-3fd4-ffff-ffffbdfb4813",
+          "name" : "ConvertRecord",
+          "type" : "PROCESSOR"
+        },
+        "flowFileExpiration" : "0 sec",
+        "groupIdentifier" : "bd837e1a-0199-1000-3772-7b730a4ead51",
+        "identifier" : "b3e7657a-facd-3581-b3a0-6d5b41d012b3",
+        "labelIndex" : 0,
+        "loadBalanceCompression" : "DO_NOT_COMPRESS",
+        "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+        "name" : "",
+        "partitioningAttribute" : "",
+        "prioritizers" : [ ],
+        "selectedRelationships" : [ "" ],
+        "source" : {
+          "groupId" : "bd837e1a-0199-1000-3772-7b730a4ead51",
+          "id" : "bd837e1d-0199-1000-91c1-054a27f3fc32",
+          "name" : "in",
+          "type" : "INPUT_PORT"
+        },
+        "zIndex" : 46
       }, {
         "backPressureDataSizeThreshold" : "1 GB",
         "backPressureObjectThreshold" : 10000,
@@ -2129,7 +2249,7 @@
         },
         "flowFileExpiration" : "0 sec",
         "groupIdentifier" : "bd837e1a-0199-1000-3772-7b730a4ead51",
-        "identifier" : "c3ebdedf-48af-3561-a8cb-7fa5f6904e40",
+        "identifier" : "cc7b3da8-4468-3cfc-a252-c5ab66d135a2",
         "labelIndex" : 0,
         "loadBalanceCompression" : "DO_NOT_COMPRESS",
         "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
@@ -2140,11 +2260,11 @@
         "source" : {
           "comments" : "",
           "groupId" : "bd837e1a-0199-1000-3772-7b730a4ead51",
-          "id" : "fc823b6a-4fc6-36e9-8165-d8f3861a2187",
-          "name" : "ExtractRecordSchema",
+          "id" : "77d3e036-17e4-3ed6-b780-914cac322bd2",
+          "name" : "DeduplicateRecord",
           "type" : "PROCESSOR"
         },
-        "zIndex" : 24
+        "zIndex" : 51
       }, {
         "backPressureDataSizeThreshold" : "1 GB",
         "backPressureObjectThreshold" : 10000,
@@ -2153,13 +2273,13 @@
         "destination" : {
           "comments" : "",
           "groupId" : "bd837e1a-0199-1000-3772-7b730a4ead51",
-          "id" : "bd837e1f-0199-1000-5769-fc33d7572174",
+          "id" : "713f1c1b-0ef8-3b8f-b5de-ac1c5ee77c52",
           "name" : "Funnel",
           "type" : "FUNNEL"
         },
         "flowFileExpiration" : "0 sec",
         "groupIdentifier" : "bd837e1a-0199-1000-3772-7b730a4ead51",
-        "identifier" : "d73b01cf-1d16-3df5-a931-115ffb1d072d",
+        "identifier" : "db50617b-0129-3968-a04c-6ea826d288e5",
         "labelIndex" : 0,
         "loadBalanceCompression" : "DO_NOT_COMPRESS",
         "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
@@ -2170,11 +2290,11 @@
         "source" : {
           "comments" : "",
           "groupId" : "bd837e1a-0199-1000-3772-7b730a4ead51",
-          "id" : "3c8b3038-d1f5-34af-ad3a-5778d804867e",
+          "id" : "44bcc45e-9364-3c0b-ffff-fffff381db26",
           "name" : "ConvertRecord",
           "type" : "PROCESSOR"
         },
-        "zIndex" : 22
+        "zIndex" : 52
       }, {
         "backPressureDataSizeThreshold" : "1 GB",
         "backPressureObjectThreshold" : 10000,
@@ -2205,66 +2325,6 @@
           "type" : "PROCESSOR"
         },
         "zIndex" : 45
-      }, {
-        "backPressureDataSizeThreshold" : "1 GB",
-        "backPressureObjectThreshold" : 10000,
-        "bends" : [ ],
-        "componentType" : "CONNECTION",
-        "destination" : {
-          "comments" : "",
-          "groupId" : "bd837e1a-0199-1000-3772-7b730a4ead51",
-          "id" : "bd837e1b-0199-1000-e712-420a929e3c37",
-          "name" : "QueryRecord",
-          "type" : "PROCESSOR"
-        },
-        "flowFileExpiration" : "0 sec",
-        "groupIdentifier" : "bd837e1a-0199-1000-3772-7b730a4ead51",
-        "identifier" : "fa856138-6820-3dfe-a729-ef822c2c71e1",
-        "labelIndex" : 0,
-        "loadBalanceCompression" : "DO_NOT_COMPRESS",
-        "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-        "name" : "",
-        "partitioningAttribute" : "",
-        "prioritizers" : [ ],
-        "selectedRelationships" : [ "success" ],
-        "source" : {
-          "comments" : "",
-          "groupId" : "bd837e1a-0199-1000-3772-7b730a4ead51",
-          "id" : "3c8b3038-d1f5-34af-ad3a-5778d804867e",
-          "name" : "ConvertRecord",
-          "type" : "PROCESSOR"
-        },
-        "zIndex" : 31
-      }, {
-        "backPressureDataSizeThreshold" : "1 GB",
-        "backPressureObjectThreshold" : 10000,
-        "bends" : [ ],
-        "componentType" : "CONNECTION",
-        "destination" : {
-          "comments" : "",
-          "groupId" : "bd837e1a-0199-1000-3772-7b730a4ead51",
-          "id" : "fc823b6a-4fc6-36e9-8165-d8f3861a2187",
-          "name" : "ExtractRecordSchema",
-          "type" : "PROCESSOR"
-        },
-        "flowFileExpiration" : "0 sec",
-        "groupIdentifier" : "bd837e1a-0199-1000-3772-7b730a4ead51",
-        "identifier" : "ff21b21c-b8fa-364d-911a-d38012f58b1c",
-        "labelIndex" : 0,
-        "loadBalanceCompression" : "DO_NOT_COMPRESS",
-        "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-        "name" : "",
-        "partitioningAttribute" : "",
-        "prioritizers" : [ ],
-        "selectedRelationships" : [ "non-duplicate" ],
-        "source" : {
-          "comments" : "",
-          "groupId" : "bd837e1a-0199-1000-3772-7b730a4ead51",
-          "id" : "77d3e036-17e4-3ed6-b780-914cac322bd2",
-          "name" : "DeduplicateRecord",
-          "type" : "PROCESSOR"
-        },
-        "zIndex" : 43
       } ],
       "controllerServices" : [ {
         "bulletinLevel" : "WARN",
@@ -2562,6 +2622,14 @@
       "funnels" : [ {
         "componentType" : "FUNNEL",
         "groupIdentifier" : "bd837e1a-0199-1000-3772-7b730a4ead51",
+        "identifier" : "713f1c1b-0ef8-3b8f-b5de-ac1c5ee77c52",
+        "position" : {
+          "x" : -217.0814171871366,
+          "y" : -683.5851446717069
+        }
+      }, {
+        "componentType" : "FUNNEL",
+        "groupIdentifier" : "bd837e1a-0199-1000-3772-7b730a4ead51",
         "identifier" : "bd837e1f-0199-1000-5769-fc33d7572174",
         "position" : {
           "x" : -216.0,
@@ -2587,8 +2655,8 @@
         "name" : "in",
         "portFunction" : "STANDARD",
         "position" : {
-          "x" : -1032.0,
-          "y" : -448.0
+          "x" : -1056.0,
+          "y" : -1032.0
         },
         "scheduledState" : "ENABLED",
         "type" : "INPUT_PORT"
@@ -2605,8 +2673,8 @@
         "name" : "out",
         "portFunction" : "STANDARD",
         "position" : {
-          "x" : -1032.0,
-          "y" : 560.0
+          "x" : -1024.0,
+          "y" : 160.0
         },
         "scheduledState" : "ENABLED",
         "type" : "OUTPUT_PORT"
@@ -2636,8 +2704,8 @@
         "name" : "ConvertRecord",
         "penaltyDuration" : "30 sec",
         "position" : {
-          "x" : -368.0,
-          "y" : -312.0
+          "x" : -376.0,
+          "y" : -416.0
         },
         "properties" : {
           "Include Zero Record FlowFiles" : "true",
@@ -2690,13 +2758,64 @@
         "concurrentlySchedulableTaskCount" : 1,
         "executionNode" : "ALL",
         "groupIdentifier" : "bd837e1a-0199-1000-3772-7b730a4ead51",
-        "identifier" : "3c8b3038-d1f5-34af-ad3a-5778d804867e",
+        "identifier" : "2713da27-cf25-3e74-ffff-fffff837499b",
+        "maxBackoffPeriod" : "10 mins",
+        "name" : "ExtractRecordSchema",
+        "penaltyDuration" : "30 sec",
+        "position" : {
+          "x" : -1104.0,
+          "y" : -736.0
+        },
+        "properties" : {
+          "cache-size" : "10",
+          "record-reader" : "307c01ad-4ec1-3f05-a12b-40c1be82ed67"
+        },
+        "propertyDescriptors" : {
+          "cache-size" : {
+            "displayName" : "Schema Cache Size",
+            "dynamic" : false,
+            "identifiesControllerService" : false,
+            "name" : "cache-size",
+            "sensitive" : false
+          },
+          "record-reader" : {
+            "displayName" : "Record Reader",
+            "dynamic" : false,
+            "identifiesControllerService" : true,
+            "name" : "record-reader",
+            "sensitive" : false
+          }
+        },
+        "retriedRelationships" : [ ],
+        "retryCount" : 10,
+        "runDurationMillis" : 0,
+        "scheduledState" : "ENABLED",
+        "schedulingPeriod" : "0 sec",
+        "schedulingStrategy" : "TIMER_DRIVEN",
+        "style" : { },
+        "type" : "org.apache.nifi.processors.standard.ExtractRecordSchema",
+        "yieldDuration" : "1 sec"
+      }, {
+        "autoTerminatedRelationships" : [ ],
+        "backoffMechanism" : "PENALIZE_FLOWFILE",
+        "bulletinLevel" : "WARN",
+        "bundle" : {
+          "artifact" : "nifi-standard-nar",
+          "group" : "org.apache.nifi",
+          "version" : "2.6.0"
+        },
+        "comments" : "",
+        "componentType" : "PROCESSOR",
+        "concurrentlySchedulableTaskCount" : 1,
+        "executionNode" : "ALL",
+        "groupIdentifier" : "bd837e1a-0199-1000-3772-7b730a4ead51",
+        "identifier" : "44bcc45e-9364-3c0b-ffff-fffff381db26",
         "maxBackoffPeriod" : "10 mins",
         "name" : "ConvertRecord",
         "penaltyDuration" : "30 sec",
         "position" : {
-          "x" : -1080.0,
-          "y" : 72.0
+          "x" : -1104.0,
+          "y" : -536.0
         },
         "properties" : {
           "Include Zero Record FlowFiles" : "true",
@@ -2755,7 +2874,7 @@
         "penaltyDuration" : "30 sec",
         "position" : {
           "x" : -1088.0,
-          "y" : -336.0
+          "y" : -328.0
         },
         "properties" : {
           "put-cache-identifier" : "false",
@@ -2763,7 +2882,7 @@
           "record-writer" : "5d25925e-b54b-34c9-ac30-de240bb07749",
           "deduplication-strategy" : "single",
           "record-hashing-algorithm" : "SHA-256",
-          "record-reader" : "98b930a8-f520-390f-994d-4b1b6292afcb",
+          "record-reader" : "307c01ad-4ec1-3f05-a12b-40c1be82ed67",
           "include-zero-record-flowfiles" : "true",
           "filter-type" : "hash-set",
           "bloom-filter-certainty" : "0.10"
@@ -2870,13 +2989,72 @@
         "concurrentlySchedulableTaskCount" : 1,
         "executionNode" : "ALL",
         "groupIdentifier" : "bd837e1a-0199-1000-3772-7b730a4ead51",
+        "identifier" : "9be5e712-2428-3fd4-ffff-ffffbdfb4813",
+        "maxBackoffPeriod" : "10 mins",
+        "name" : "ConvertRecord",
+        "penaltyDuration" : "30 sec",
+        "position" : {
+          "x" : -1104.0,
+          "y" : -936.0
+        },
+        "properties" : {
+          "Include Zero Record FlowFiles" : "true",
+          "Record Writer" : "5d25925e-b54b-34c9-ac30-de240bb07749",
+          "Record Reader" : "98b930a8-f520-390f-994d-4b1b6292afcb"
+        },
+        "propertyDescriptors" : {
+          "Include Zero Record FlowFiles" : {
+            "displayName" : "Include Zero Record FlowFiles",
+            "dynamic" : false,
+            "identifiesControllerService" : false,
+            "name" : "Include Zero Record FlowFiles",
+            "sensitive" : false
+          },
+          "Record Writer" : {
+            "displayName" : "Record Writer",
+            "dynamic" : false,
+            "identifiesControllerService" : true,
+            "name" : "Record Writer",
+            "sensitive" : false
+          },
+          "Record Reader" : {
+            "displayName" : "Record Reader",
+            "dynamic" : false,
+            "identifiesControllerService" : true,
+            "name" : "Record Reader",
+            "sensitive" : false
+          }
+        },
+        "retriedRelationships" : [ ],
+        "retryCount" : 10,
+        "runDurationMillis" : 0,
+        "scheduledState" : "ENABLED",
+        "schedulingPeriod" : "0 sec",
+        "schedulingStrategy" : "TIMER_DRIVEN",
+        "style" : { },
+        "type" : "org.apache.nifi.processors.standard.ConvertRecord",
+        "yieldDuration" : "1 sec"
+      }, {
+        "autoTerminatedRelationships" : [ ],
+        "backoffMechanism" : "PENALIZE_FLOWFILE",
+        "bulletinLevel" : "WARN",
+        "bundle" : {
+          "artifact" : "nifi-standard-nar",
+          "group" : "org.apache.nifi",
+          "version" : "2.6.0"
+        },
+        "comments" : "",
+        "componentType" : "PROCESSOR",
+        "concurrentlySchedulableTaskCount" : 1,
+        "executionNode" : "ALL",
+        "groupIdentifier" : "bd837e1a-0199-1000-3772-7b730a4ead51",
         "identifier" : "bd837e1b-0199-1000-e712-420a929e3c37",
         "maxBackoffPeriod" : "10 mins",
         "name" : "QueryRecord",
         "penaltyDuration" : "30 sec",
         "position" : {
-          "x" : -1096.0,
-          "y" : 288.0
+          "x" : -1072.0,
+          "y" : -88.0
         },
         "properties" : {
           "weekAppend" : "SELECT\n  \"timestamp\",\n  hour_of_day,\n  sending_address,\n  receiving_address,\n  amount,\n  transaction_type,\n  location_region,\n  ip_prefix,\n  login_frequency,\n  session_duration,\n  purchase_pattern,\n  age_group,\n  risk_score,\n  anomaly,\n  EXTRACT(WEEK FROM CAST(\"timestamp\" AS TIMESTAMP)) AS week_of_year\nFROM FLOWFILE",
@@ -2958,8 +3136,8 @@
         "name" : "ScriptedTransformRecord",
         "penaltyDuration" : "30 sec",
         "position" : {
-          "x" : -1752.0,
-          "y" : 264.0
+          "x" : -1768.0,
+          "y" : -72.0
         },
         "properties" : {
           "Script Engine" : "Groovy",
@@ -3027,57 +3205,6 @@
         "schedulingStrategy" : "TIMER_DRIVEN",
         "style" : { },
         "type" : "org.apache.nifi.processors.script.ScriptedTransformRecord",
-        "yieldDuration" : "1 sec"
-      }, {
-        "autoTerminatedRelationships" : [ ],
-        "backoffMechanism" : "PENALIZE_FLOWFILE",
-        "bulletinLevel" : "WARN",
-        "bundle" : {
-          "artifact" : "nifi-standard-nar",
-          "group" : "org.apache.nifi",
-          "version" : "2.6.0"
-        },
-        "comments" : "",
-        "componentType" : "PROCESSOR",
-        "concurrentlySchedulableTaskCount" : 1,
-        "executionNode" : "ALL",
-        "groupIdentifier" : "bd837e1a-0199-1000-3772-7b730a4ead51",
-        "identifier" : "fc823b6a-4fc6-36e9-8165-d8f3861a2187",
-        "maxBackoffPeriod" : "10 mins",
-        "name" : "ExtractRecordSchema",
-        "penaltyDuration" : "30 sec",
-        "position" : {
-          "x" : -1088.0,
-          "y" : -136.0
-        },
-        "properties" : {
-          "cache-size" : "10",
-          "record-reader" : "307c01ad-4ec1-3f05-a12b-40c1be82ed67"
-        },
-        "propertyDescriptors" : {
-          "cache-size" : {
-            "displayName" : "Schema Cache Size",
-            "dynamic" : false,
-            "identifiesControllerService" : false,
-            "name" : "cache-size",
-            "sensitive" : false
-          },
-          "record-reader" : {
-            "displayName" : "Record Reader",
-            "dynamic" : false,
-            "identifiesControllerService" : true,
-            "name" : "record-reader",
-            "sensitive" : false
-          }
-        },
-        "retriedRelationships" : [ ],
-        "retryCount" : 10,
-        "runDurationMillis" : 0,
-        "scheduledState" : "ENABLED",
-        "schedulingPeriod" : "0 sec",
-        "schedulingStrategy" : "TIMER_DRIVEN",
-        "style" : { },
-        "type" : "org.apache.nifi.processors.standard.ExtractRecordSchema",
         "yieldDuration" : "1 sec"
       } ],
       "remoteProcessGroups" : [ ],
@@ -4617,6 +4744,6 @@
   "snapshotMetadata" : {
     "author" : "user01",
     "flowIdentifier" : "exercise",
-    "timestamp" : 1760019922517
+    "timestamp" : 1760021045148
   }
 }
