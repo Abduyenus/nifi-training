@@ -951,14 +951,14 @@
           "group" : "org.apache.nifi",
           "version" : "2.6.0"
         },
-        "type" : "org.apache.nifi.distributed.cache.client.AtomicDistributedMapCacheClient"
+        "type" : "org.apache.nifi.distributed.cache.client.DistributedMapCacheClient"
       }, {
         "bundle" : {
           "artifact" : "nifi-standard-services-api-nar",
           "group" : "org.apache.nifi",
           "version" : "2.6.0"
         },
-        "type" : "org.apache.nifi.distributed.cache.client.DistributedMapCacheClient"
+        "type" : "org.apache.nifi.distributed.cache.client.AtomicDistributedMapCacheClient"
       } ],
       "groupIdentifier" : "flow-contents-group",
       "identifier" : "bd837e0b-0199-1000-dffa-ee1bb04afe74",
@@ -1916,8 +1916,8 @@
         "destination" : {
           "comments" : "",
           "groupId" : "bd837e1a-0199-1000-3772-7b730a4ead51",
-          "id" : "bd837e1b-0199-1000-e712-420a929e3c37",
-          "name" : "QueryRecord",
+          "id" : "e2a36489-0199-1000-63f9-d9822da234f3",
+          "name" : "UpdateRecord",
           "type" : "PROCESSOR"
         },
         "flowFileExpiration" : "0 sec",
@@ -1951,35 +1951,6 @@
         },
         "flowFileExpiration" : "0 sec",
         "groupIdentifier" : "bd837e1a-0199-1000-3772-7b730a4ead51",
-        "identifier" : "57e49d77-f3bf-3c0c-8be2-84f389ec80bf",
-        "labelIndex" : 0,
-        "loadBalanceCompression" : "DO_NOT_COMPRESS",
-        "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-        "name" : "",
-        "partitioningAttribute" : "",
-        "prioritizers" : [ ],
-        "selectedRelationships" : [ "weekAppend" ],
-        "source" : {
-          "comments" : "",
-          "groupId" : "bd837e1a-0199-1000-3772-7b730a4ead51",
-          "id" : "bd837e1b-0199-1000-e712-420a929e3c37",
-          "name" : "QueryRecord",
-          "type" : "PROCESSOR"
-        },
-        "zIndex" : 29
-      }, {
-        "backPressureDataSizeThreshold" : "1 GB",
-        "backPressureObjectThreshold" : 10000,
-        "bends" : [ ],
-        "componentType" : "CONNECTION",
-        "destination" : {
-          "groupId" : "bd837e1a-0199-1000-3772-7b730a4ead51",
-          "id" : "bd837e1e-0199-1000-48d1-e68126d03274",
-          "name" : "out",
-          "type" : "OUTPUT_PORT"
-        },
-        "flowFileExpiration" : "0 sec",
-        "groupIdentifier" : "bd837e1a-0199-1000-3772-7b730a4ead51",
         "identifier" : "65c60c26-3237-34d0-a1ce-433c09cd6fa8",
         "labelIndex" : 0,
         "loadBalanceCompression" : "DO_NOT_COMPRESS",
@@ -1996,36 +1967,6 @@
           "type" : "PROCESSOR"
         },
         "zIndex" : 36
-      }, {
-        "backPressureDataSizeThreshold" : "1 GB",
-        "backPressureObjectThreshold" : 10000,
-        "bends" : [ ],
-        "componentType" : "CONNECTION",
-        "destination" : {
-          "comments" : "",
-          "groupId" : "bd837e1a-0199-1000-3772-7b730a4ead51",
-          "id" : "bd837e1b-0199-1000-e712-420a929e3c37",
-          "name" : "QueryRecord",
-          "type" : "PROCESSOR"
-        },
-        "flowFileExpiration" : "0 sec",
-        "groupIdentifier" : "bd837e1a-0199-1000-3772-7b730a4ead51",
-        "identifier" : "79126933-2144-3a47-af01-3effbcaa2788",
-        "labelIndex" : 0,
-        "loadBalanceCompression" : "DO_NOT_COMPRESS",
-        "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-        "name" : "",
-        "partitioningAttribute" : "",
-        "prioritizers" : [ ],
-        "selectedRelationships" : [ "failure" ],
-        "source" : {
-          "comments" : "",
-          "groupId" : "bd837e1a-0199-1000-3772-7b730a4ead51",
-          "id" : "ddff8693-3383-32cc-95d8-2981b5fb513b",
-          "name" : "ScriptedTransformRecord",
-          "type" : "PROCESSOR"
-        },
-        "zIndex" : 37
       }, {
         "backPressureDataSizeThreshold" : "1 GB",
         "backPressureObjectThreshold" : 10000,
@@ -2124,6 +2065,36 @@
         "destination" : {
           "comments" : "",
           "groupId" : "bd837e1a-0199-1000-3772-7b730a4ead51",
+          "id" : "ddff8693-3383-32cc-95d8-2981b5fb513b",
+          "name" : "ScriptedTransformRecord",
+          "type" : "PROCESSOR"
+        },
+        "flowFileExpiration" : "0 sec",
+        "groupIdentifier" : "bd837e1a-0199-1000-3772-7b730a4ead51",
+        "identifier" : "9a4b32f7-2577-36b1-ad55-06faf526e6b9",
+        "labelIndex" : 0,
+        "loadBalanceCompression" : "DO_NOT_COMPRESS",
+        "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+        "name" : "",
+        "partitioningAttribute" : "",
+        "prioritizers" : [ ],
+        "selectedRelationships" : [ "non-duplicate" ],
+        "source" : {
+          "comments" : "",
+          "groupId" : "bd837e1a-0199-1000-3772-7b730a4ead51",
+          "id" : "77d3e036-17e4-3ed6-b780-914cac322bd2",
+          "name" : "DeduplicateRecord",
+          "type" : "PROCESSOR"
+        },
+        "zIndex" : 57
+      }, {
+        "backPressureDataSizeThreshold" : "1 GB",
+        "backPressureObjectThreshold" : 10000,
+        "bends" : [ ],
+        "componentType" : "CONNECTION",
+        "destination" : {
+          "comments" : "",
+          "groupId" : "bd837e1a-0199-1000-3772-7b730a4ead51",
           "id" : "77d3e036-17e4-3ed6-b780-914cac322bd2",
           "name" : "DeduplicateRecord",
           "type" : "PROCESSOR"
@@ -2211,30 +2182,29 @@
         "bends" : [ ],
         "componentType" : "CONNECTION",
         "destination" : {
-          "comments" : "",
           "groupId" : "bd837e1a-0199-1000-3772-7b730a4ead51",
-          "id" : "bd837e1f-0199-1000-5769-fc33d7572174",
-          "name" : "Funnel",
-          "type" : "FUNNEL"
+          "id" : "bd837e1e-0199-1000-48d1-e68126d03274",
+          "name" : "out",
+          "type" : "OUTPUT_PORT"
         },
         "flowFileExpiration" : "0 sec",
         "groupIdentifier" : "bd837e1a-0199-1000-3772-7b730a4ead51",
-        "identifier" : "bd837e24-0199-1000-8547-fb5398f315ca",
+        "identifier" : "c9ef9e32-cd65-3ebe-aabf-f4f9966b10c5",
         "labelIndex" : 0,
         "loadBalanceCompression" : "DO_NOT_COMPRESS",
         "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
         "name" : "",
         "partitioningAttribute" : "",
         "prioritizers" : [ ],
-        "selectedRelationships" : [ "failure", "original" ],
+        "selectedRelationships" : [ "success" ],
         "source" : {
           "comments" : "",
           "groupId" : "bd837e1a-0199-1000-3772-7b730a4ead51",
-          "id" : "bd837e1b-0199-1000-e712-420a929e3c37",
-          "name" : "QueryRecord",
+          "id" : "e2a36489-0199-1000-63f9-d9822da234f3",
+          "name" : "UpdateRecord",
           "type" : "PROCESSOR"
         },
-        "zIndex" : 17
+        "zIndex" : 56
       }, {
         "backPressureDataSizeThreshold" : "1 GB",
         "backPressureObjectThreshold" : 10000,
@@ -2341,14 +2311,14 @@
             "group" : "org.apache.nifi",
             "version" : "2.6.0"
           },
-          "type" : "org.apache.nifi.distributed.cache.client.AtomicDistributedMapCacheClient"
+          "type" : "org.apache.nifi.distributed.cache.client.DistributedMapCacheClient"
         }, {
           "bundle" : {
             "artifact" : "nifi-standard-services-api-nar",
             "group" : "org.apache.nifi",
             "version" : "2.6.0"
           },
-          "type" : "org.apache.nifi.distributed.cache.client.DistributedMapCacheClient"
+          "type" : "org.apache.nifi.distributed.cache.client.AtomicDistributedMapCacheClient"
         } ],
         "groupIdentifier" : "bd837e1a-0199-1000-3772-7b730a4ead51",
         "identifier" : "a8e973f2-dc76-31a0-b37a-f6e907d7859d",
@@ -2676,7 +2646,7 @@
           "x" : -1024.0,
           "y" : 160.0
         },
-        "scheduledState" : "ENABLED",
+        "scheduledState" : "DISABLED",
         "type" : "OUTPUT_PORT"
       } ],
       "parameterContextName" : "nifi.training",
@@ -2704,8 +2674,8 @@
         "name" : "ConvertRecord",
         "penaltyDuration" : "30 sec",
         "position" : {
-          "x" : -376.0,
-          "y" : -416.0
+          "x" : -384.0,
+          "y" : -344.0
         },
         "properties" : {
           "Include Zero Record FlowFiles" : "true",
@@ -2738,7 +2708,7 @@
         "retriedRelationships" : [ ],
         "retryCount" : 10,
         "runDurationMillis" : 0,
-        "scheduledState" : "ENABLED",
+        "scheduledState" : "DISABLED",
         "schedulingPeriod" : "0 sec",
         "schedulingStrategy" : "TIMER_DRIVEN",
         "style" : { },
@@ -2873,8 +2843,8 @@
         "name" : "DeduplicateRecord",
         "penaltyDuration" : "30 sec",
         "position" : {
-          "x" : -1088.0,
-          "y" : -328.0
+          "x" : -1096.0,
+          "y" : -336.0
         },
         "properties" : {
           "put-cache-identifier" : "false",
@@ -3035,90 +3005,7 @@
         "type" : "org.apache.nifi.processors.standard.ConvertRecord",
         "yieldDuration" : "1 sec"
       }, {
-        "autoTerminatedRelationships" : [ ],
-        "backoffMechanism" : "PENALIZE_FLOWFILE",
-        "bulletinLevel" : "WARN",
-        "bundle" : {
-          "artifact" : "nifi-standard-nar",
-          "group" : "org.apache.nifi",
-          "version" : "2.6.0"
-        },
-        "comments" : "",
-        "componentType" : "PROCESSOR",
-        "concurrentlySchedulableTaskCount" : 1,
-        "executionNode" : "ALL",
-        "groupIdentifier" : "bd837e1a-0199-1000-3772-7b730a4ead51",
-        "identifier" : "bd837e1b-0199-1000-e712-420a929e3c37",
-        "maxBackoffPeriod" : "10 mins",
-        "name" : "QueryRecord",
-        "penaltyDuration" : "30 sec",
-        "position" : {
-          "x" : -1072.0,
-          "y" : -88.0
-        },
-        "properties" : {
-          "weekAppend" : "SELECT\n  \"timestamp\",\n  hour_of_day,\n  sending_address,\n  receiving_address,\n  amount,\n  transaction_type,\n  location_region,\n  ip_prefix,\n  login_frequency,\n  session_duration,\n  purchase_pattern,\n  age_group,\n  risk_score,\n  anomaly,\n  EXTRACT(WEEK FROM CAST(\"timestamp\" AS TIMESTAMP)) AS week_of_year\nFROM FLOWFILE",
-          "dbf-default-precision" : "10",
-          "record-writer" : "5d25925e-b54b-34c9-ac30-de240bb07749",
-          "record-reader" : "f275ef35-264f-3825-8c05-e30c97c6e590",
-          "include-zero-record-flowfiles" : "true",
-          "dbf-default-scale" : "0"
-        },
-        "propertyDescriptors" : {
-          "weekAppend" : {
-            "displayName" : "weekAppend",
-            "dynamic" : true,
-            "identifiesControllerService" : false,
-            "name" : "weekAppend",
-            "sensitive" : false
-          },
-          "dbf-default-precision" : {
-            "displayName" : "Default Decimal Precision",
-            "dynamic" : false,
-            "identifiesControllerService" : false,
-            "name" : "dbf-default-precision",
-            "sensitive" : false
-          },
-          "record-writer" : {
-            "displayName" : "Record Writer",
-            "dynamic" : false,
-            "identifiesControllerService" : true,
-            "name" : "record-writer",
-            "sensitive" : false
-          },
-          "record-reader" : {
-            "displayName" : "Record Reader",
-            "dynamic" : false,
-            "identifiesControllerService" : true,
-            "name" : "record-reader",
-            "sensitive" : false
-          },
-          "include-zero-record-flowfiles" : {
-            "displayName" : "Include Zero Record FlowFiles",
-            "dynamic" : false,
-            "identifiesControllerService" : false,
-            "name" : "include-zero-record-flowfiles",
-            "sensitive" : false
-          },
-          "dbf-default-scale" : {
-            "displayName" : "Default Decimal Scale",
-            "dynamic" : false,
-            "identifiesControllerService" : false,
-            "name" : "dbf-default-scale",
-            "sensitive" : false
-          }
-        },
-        "retriedRelationships" : [ ],
-        "retryCount" : 10,
-        "runDurationMillis" : 0,
-        "scheduledState" : "ENABLED",
-        "schedulingPeriod" : "0 sec",
-        "schedulingStrategy" : "TIMER_DRIVEN",
-        "style" : { },
-        "type" : "org.apache.nifi.processors.standard.QueryRecord",
-        "yieldDuration" : "1 sec"
-      }, {
-        "autoTerminatedRelationships" : [ ],
+        "autoTerminatedRelationships" : [ "failure" ],
         "backoffMechanism" : "PENALIZE_FLOWFILE",
         "bulletinLevel" : "WARN",
         "bundle" : {
@@ -3136,12 +3023,12 @@
         "name" : "ScriptedTransformRecord",
         "penaltyDuration" : "30 sec",
         "position" : {
-          "x" : -1768.0,
-          "y" : -72.0
+          "x" : -1576.0,
+          "y" : -96.0
         },
         "properties" : {
           "Script Engine" : "Groovy",
-          "Script Body" : "import java.time.LocalDateTime\nimport java.time.format.DateTimeFormatter\nimport java.time.temporal.WeekFields\nimport java.util.Locale\n\n// This function is invoked for each record\ndef transform(record, context) {\n    // Read timestamp string\n    def ts = record.getAsString(\"timestamp\")\n    Integer weekOfYear = null\n\n    if (ts) {\n        try {\n            // Use formatter that matches your timestamp format: \"2022-04-11 12:47:27\"\n            def formatter = DateTimeFormatter.ofPattern(\"yyyy-MM-dd HH:mm:ss\")\n            def dt = LocalDateTime.parse(ts, formatter)\n            def weekFields = WeekFields.ISO\n            weekOfYear = dt.get(weekFields.weekOfWeekBasedYear())\n            \n            // Optional: Log success for debugging\n            context.logger.info(\"Successfully parsed timestamp: ${ts} -> week ${weekOfYear}\")\n            \n        } catch (Exception ex) {\n            // parsing failed, leave weekOfYear as null\n            context.logger.warn(\"Failed to parse timestamp: ${ts}, error: ${ex.message}\")\n        }\n    } else {\n        context.logger.warn(\"Timestamp field is null or empty\")\n    }\n\n    // Add the new field for *every* record\n    record.setValue(\"week_of_year\", weekOfYear)\n\n    return record\n}",
+          "Script Body" : "import java.time.LocalDateTime\nimport java.time.format.DateTimeFormatter\nimport java.time.temporal.WeekFields\nimport java.util.Locale\n\ndef transform(record, context) {\n    def ts = record.getAsString(\"timestamp\")\n    Integer weekOfYear = null\n\n    if (ts) {\n        try {\n            def date = toDate(ts, \"yyyy-MM-dd HH:mm:ss\")\n            weekOfYear = date ? (format(date, \"w\") as Integer) : null\n        } catch (Exception ex) {\n            // weekOfYear remains null on error\n        }\n    }\n\n    record.setValue(\"week_of_year\", weekOfYear)\n    return record\n}",
           "Record Writer" : "5d25925e-b54b-34c9-ac30-de240bb07749",
           "Record Reader" : "f275ef35-264f-3825-8c05-e30c97c6e590"
         },
@@ -3200,11 +3087,78 @@
         "retriedRelationships" : [ ],
         "retryCount" : 10,
         "runDurationMillis" : 0,
-        "scheduledState" : "DISABLED",
+        "scheduledState" : "ENABLED",
         "schedulingPeriod" : "0 sec",
         "schedulingStrategy" : "TIMER_DRIVEN",
         "style" : { },
         "type" : "org.apache.nifi.processors.script.ScriptedTransformRecord",
+        "yieldDuration" : "1 sec"
+      }, {
+        "autoTerminatedRelationships" : [ "failure" ],
+        "backoffMechanism" : "PENALIZE_FLOWFILE",
+        "bulletinLevel" : "WARN",
+        "bundle" : {
+          "artifact" : "nifi-standard-nar",
+          "group" : "org.apache.nifi",
+          "version" : "2.6.0"
+        },
+        "comments" : "",
+        "componentType" : "PROCESSOR",
+        "concurrentlySchedulableTaskCount" : 1,
+        "executionNode" : "ALL",
+        "groupIdentifier" : "bd837e1a-0199-1000-3772-7b730a4ead51",
+        "identifier" : "e2a36489-0199-1000-63f9-d9822da234f3",
+        "maxBackoffPeriod" : "10 mins",
+        "name" : "UpdateRecord",
+        "penaltyDuration" : "30 sec",
+        "position" : {
+          "x" : -1088.0,
+          "y" : -96.0
+        },
+        "properties" : {
+          "Record Writer" : "5d25925e-b54b-34c9-ac30-de240bb07749",
+          "Record Reader" : "307c01ad-4ec1-3f05-a12b-40c1be82ed67",
+          "/week_of_year" : "format(toDate(/timestamp, \"yyyy-MM-dd HH:mm:ss\"), \"w\")",
+          "Replacement Value Strategy" : "record-path-value"
+        },
+        "propertyDescriptors" : {
+          "Record Writer" : {
+            "displayName" : "Record Writer",
+            "dynamic" : false,
+            "identifiesControllerService" : true,
+            "name" : "Record Writer",
+            "sensitive" : false
+          },
+          "Record Reader" : {
+            "displayName" : "Record Reader",
+            "dynamic" : false,
+            "identifiesControllerService" : true,
+            "name" : "Record Reader",
+            "sensitive" : false
+          },
+          "/week_of_year" : {
+            "displayName" : "/week_of_year",
+            "dynamic" : true,
+            "identifiesControllerService" : false,
+            "name" : "/week_of_year",
+            "sensitive" : false
+          },
+          "Replacement Value Strategy" : {
+            "displayName" : "Replacement Value Strategy",
+            "dynamic" : false,
+            "identifiesControllerService" : false,
+            "name" : "Replacement Value Strategy",
+            "sensitive" : false
+          }
+        },
+        "retriedRelationships" : [ ],
+        "retryCount" : 10,
+        "runDurationMillis" : 0,
+        "scheduledState" : "ENABLED",
+        "schedulingPeriod" : "0 sec",
+        "schedulingStrategy" : "TIMER_DRIVEN",
+        "style" : { },
+        "type" : "org.apache.nifi.processors.standard.UpdateRecord",
         "yieldDuration" : "1 sec"
       } ],
       "remoteProcessGroups" : [ ],
@@ -3399,7 +3353,7 @@
           "y" : -160.0
         },
         "properties" : {
-          "Packaging Format" : "use mime.type attribute",
+          "Packaging Format" : "zip",
           "allow-stored-entries-wdd" : "false",
           "Filename Character Set" : "UTF-8",
           "File Filter" : "metaverse_transactions_dataset\\.csv"
@@ -3935,14 +3889,14 @@
             "group" : "org.apache.nifi",
             "version" : "2.6.0"
           },
-          "type" : "org.apache.nifi.distributed.cache.client.AtomicDistributedMapCacheClient"
+          "type" : "org.apache.nifi.distributed.cache.client.DistributedMapCacheClient"
         }, {
           "bundle" : {
             "artifact" : "nifi-standard-services-api-nar",
             "group" : "org.apache.nifi",
             "version" : "2.6.0"
           },
-          "type" : "org.apache.nifi.distributed.cache.client.DistributedMapCacheClient"
+          "type" : "org.apache.nifi.distributed.cache.client.AtomicDistributedMapCacheClient"
         } ],
         "groupIdentifier" : "bd837e2e-0199-1000-416b-dc8df18c1518",
         "identifier" : "bd837e2f-0199-1000-191d-5210017927ae",
@@ -4348,8 +4302,8 @@
         "name" : "in",
         "portFunction" : "STANDARD",
         "position" : {
-          "x" : -1208.0,
-          "y" : -768.0
+          "x" : -1224.0,
+          "y" : -744.0
         },
         "scheduledState" : "ENABLED",
         "type" : "INPUT_PORT"
@@ -4742,8 +4696,8 @@
   },
   "parameterProviders" : { },
   "snapshotMetadata" : {
-    "author" : "user01",
+    "author" : "admin",
     "flowIdentifier" : "exercise",
-    "timestamp" : 1760021045148
+    "timestamp" : 1760446146867
   }
 }
