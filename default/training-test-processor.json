@@ -1,0 +1,11 @@
+{
+  "flow" : {
+    "createdTimestamp" : 1760514335492,
+    "description" : "",
+    "identifier" : "training-test-processor",
+    "lastModifiedTimestamp" : 1760514335492,
+    "name" : "training test processor",
+    "versionCount" : 0
+  },
+  "latest" : false
+}
