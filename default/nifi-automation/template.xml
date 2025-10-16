@@ -1,1 +1,76 @@
-
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<template>
+    <description>Simple Test Template</description>
+    <groupId>5e3075e4-0180-1000-0000-000000000000</groupId>
+    <id>12345678-1234-1234-1234-123456789012</id>
+    <name>Test-Template</name>
+    <timestamp>01/01/2025 12:00:00</timestamp>
+    <version>1</version>
+    <snippet>
+        <processGroups/>
+        <remoteProcessGroups/>
+        <processors>
+            <processor>
+                <id>11111111-1111-1111-1111-111111111111</id>
+                <parentGroupId>5e3075e4-0180-1000-0000-000000000000</parentGroupId>
+                <position>
+                    <x>100.0</x>
+                    <y>100.0</y>
+                </position>
+                <bundle>
+                    <artifact>nifi-standard-nar</artifact>
+                    <group>org.apache.nifi</group>
+                    <version>2.5.0</version>
+                </bundle>
+                <config>
+                    <bulletinLevel>WARN</bulletinLevel>
+                    <comments/>
+                    <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                    <descriptors>
+                        <entry>
+                            <key>Success</key>
+                            <value>
+                                <name>Success</name>
+                            </value>
+                        </entry>
+                    </descriptors>
+                    <executionNode>ALL</executionNode>
+                    <lossTolerant>false</lossTolerant>
+                    <name>LogMessage</name>
+                    <penaltyDuration>30 sec</penaltyDuration>
+                    <properties>
+                        <entry>
+                            <key>Log Level</key>
+                            <value>INFO</value>
+                        </entry>
+                        <entry>
+                            <key>Log Message</key>
+                            <value>Automatically deployed from Jenkins!</value>
+                        </entry>
+                    </properties>
+                    <runDurationMillis>0</runDurationMillis>
+                    <schedulingPeriod>0 sec</schedulingPeriod>
+                    <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+                    <yieldDuration>1 sec</yieldDuration>
+                </config>
+                <executionNodeRestricted>false</executionNodeRestricted>
+                <name>LogMessage</name>
+                <relationships>
+                    <relationship>
+                        <autoTerminate>true</autoTerminate>
+                        <description/>
+                        <name>success</name>
+                    </relationship>
+                </relationships>
+                <state>STOPPED</state>
+                <style/>
+                <type>org.apache.nifi.processors.standard.LogMessage</type>
+            </processor>
+        </processors>
+        <inputPorts/>
+        <outputPorts/>
+        <connections/>
+        <labels/>
+        <funnels/>
+    </snippet>
+</template>
