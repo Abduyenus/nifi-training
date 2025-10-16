@@ -1,1 +1,132 @@
+pipeline {
+    agent any
+    
+    triggers {
+        githubPush()
+    }
+    
+    environment {
+        NIFI_URL = 'https://localhost:8443/nifi-api'
+    }
+    
+    stages {
+        stage('Checkout Code') {
+            steps {
+                checkout scm
+                echo '✅ Code checked out successfully from GitHub'
+            }
+        }
+        
+        stage('Validate Files') {
+            steps {
+                script {
+                    if (fileExists('template.xml')) {
+                        echo '✅ template.xml found'
+                    } else {
+                        error '❌ template.xml not found!'
+                    }
+                }
+            }
+        }
+        
+        stage('Deploy to NiFi') {
+            steps {
+                script {
+                    echo '🚀 Starting NiFi deployment...'
+                    deployToNifi()
+                }
+            }
+        }
+        
+        stage('Verify Deployment') {
+            steps {
+                script {
+                    echo '🔍 Verifying deployment...'
+                    verifyDeployment()
+                }
+            }
+        }
+    }
+    
+    post {
+        success {
+            echo '🎉 NiFi deployment completed successfully!'
+        }
+        failure {
+            echo '💥 NiFi deployment failed!'
+        }
+    }
+}
 
+def deployToNifi() {
+    powershell '''
+        Write-Host "Starting NiFi deployment..." -ForegroundColor Green
+        
+        # Bypass SSL for local development
+        [System.Net.ServicePointManager]::ServerCertificateValidationCallback = { $true }
+        
+        # Check if NiFi is running
+        try {
+            $response = Invoke-WebRequest -Uri "https://localhost:8443/nifi-api/flow/process-groups/root" -UseBasicParsing
+            Write-Host "✅ NiFi is running and accessible" -ForegroundColor Green
+        } catch {
+            Write-Error "❌ NiFi is not running! Please start NiFi first."
+            exit 1
+        }
+        
+        # Upload template
+        if (Test-Path "template.xml") {
+            Write-Host "📤 Uploading template to NiFi..." -ForegroundColor Cyan
+            
+            $form = @{
+                template = Get-Item "template.xml"
+            }
+            
+            try {
+                $uploadResponse = Invoke-RestMethod -Uri "https://localhost:8443/nifi-api/process-groups/root/templates/upload" -Method Post -Form $form
+                $templateId = $uploadResponse.template.id
+                Write-Host "✅ Template uploaded successfully. ID: $templateId" -ForegroundColor Green
+                
+                # Instantiate template
+                $instantiateBody = @{
+                    templateId = $templateId
+                    originX = 100
+                    originY = 100
+                    disconnectedNodeAcknowledged = true
+                } | ConvertTo-Json -Depth 5
+                
+                $instanceResponse = Invoke-RestMethod -Uri "https://localhost:8443/nifi-api/process-groups/root/template-instance" -Method Post -Body $instantiateBody -ContentType "application/json"
+                Write-Host "✅ Template instantiated successfully!" -ForegroundColor Green
+                
+            } catch {
+                Write-Error "❌ Failed to deploy template: $($_.Exception.Message)"
+                Write-Host "Response: $($_.Exception.Response)" -ForegroundColor Red
+                exit 1
+            }
+        } else {
+            Write-Error "❌ template.xml not found!"
+            exit 1
+        }
+    '''
+}
+
+def verifyDeployment() {
+    powershell '''
+        Write-Host "Verifying deployment..." -ForegroundColor Yellow
+        
+        [System.Net.ServicePointManager]::ServerCertificateValidationCallback = { $true }
+        
+        try {
+            $response = Invoke-RestMethod -Uri "https://localhost:8443/nifi-api/flow/process-groups/root" -Method Get
+            $processorCount = $response.processGroupFlow.flow.processors.Count
+            $connectionCount = $response.processGroupFlow.flow.connections.Count
+            
+            Write-Host "✅ Deployment verified successfully!" -ForegroundColor Green
+            Write-Host "📊 Processors: $processorCount, Connections: $connectionCount" -ForegroundColor Cyan
+            Write-Host "🌐 Check NiFi UI: https://localhost:8443/nifi" -ForegroundColor Blue
+            
+        } catch {
+            Write-Warning "⚠️ Could not verify automatically. Please check NiFi UI manually."
+        }
+    '''
+}
